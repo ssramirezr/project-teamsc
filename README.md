@@ -2,7 +2,7 @@
 
 <h1 align="center">
     <tt>> ST0270 Formal Languages and Compilers
-Project </tt> :chess_pawn:
+Project </tt>:
 </h1>
 
 ### Group Members: 
