@@ -62,9 +62,9 @@ def follow_de_produccion(no_terminal, produccion, follow, first):
 def main():
   c = int(input())
   for _ in range(c):
-    n = int(input())
+    n = int(input()) + 1
     G = {}
-    j = 0
+    j = 1
     while j < n:
       l = input()
       l = l.split()
@@ -72,7 +72,6 @@ def main():
       for i in range(1,len(l)):
         G[l[0]].append(l[i])
       j+=1
-    i = 0
     first_set = first_algoritmo(G)
     follow_set =  follow_algoritmo(G, 'S')
     for non_terminal, first in first_set.items():
