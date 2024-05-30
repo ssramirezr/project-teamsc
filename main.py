@@ -48,11 +48,11 @@ def follow_de_produccion(no_terminal, produccion, follow, first):
     for simbolo in reversed(produccion):
         if simbolo in follow:
             verificador2 = len(follow[simbolo])
-            follow[simbolo] |= trailer
+            follow[simbolo] = follow[simbolo] | trailer
             if len(follow[simbolo]) != verificador2:
                 verificador = True
             if 'e' in first[simbolo]:
-                trailer |= (first[simbolo] - {'e'})
+                trailer = trailer | (first[simbolo] - {'e'})
             else:
                 trailer = first[simbolo]
         else:
@@ -74,7 +74,10 @@ def main():
       j+=1
     i = 0
     first_set = first_algoritmo(G)
-    follow_set =  follow_algoritmo(G, 'S')
+    for simbolo in G:
+        simbolo_inicial = simbolo
+        break
+    follow_set =  follow_algoritmo(G, simbolo_inicial)
     for non_terminal, first in first_set.items():
         print(f"First({non_terminal}) = {first}")
     #-----------------------------------
